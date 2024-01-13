@@ -1,6 +1,7 @@
-from app.models.models import parametrosVentanaViviani
+from app.models.models import VivianiParameters
 
-class CalulateService:
-    def __init__(self):
-        pass
-        
+
+def calcular_perimetro(params: VivianiParameters) -> float:
+    radio, subintervalos = params.radio, params.subintervalos
+
+    

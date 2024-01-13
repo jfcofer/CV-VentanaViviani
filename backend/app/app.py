@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_restx import Api
-from routes.routes import calculate_namespace
+from app.routes.routes import calculate_namespace
 
 api = Api()
 app = Flask(__name__)

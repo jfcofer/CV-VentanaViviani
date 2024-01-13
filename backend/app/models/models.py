@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
 @dataclass
-class parametrosVentanaViviani:
+class VivianiParameters:
     radio: float
     subintervalos: float
