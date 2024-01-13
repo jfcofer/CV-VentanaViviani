@@ -7,22 +7,34 @@ calculate_namespace = Namespace(
     "calculate", description="Ruta para calcular el perimetro de una ventana de Viviani"
 )
 
-
 calculate_model = calculate_namespace.model(
-    "Parametros",{
+    "Parametros",
+    {
         "radio": fields.Float(description="Radio del la Esfera a Evaluar"),
-        "subintervalos": fields.Float(description="Subintervalos para la suma de Riemmann")
-    }
+        "subintervalos": fields.Integer(
+            description="Subintervalos para la suma de Riemmann"
+        ),
+    },
 )
+
+response_model = calculate_namespace.model(
+    "Respuesta",
+    {
+        "result": fields.Float(
+            description="Aproximacion del perimetro de la Ventana de Viviani"
+        )
+    },
+)
+
 
 @calculate_namespace.route("")
 class CalcularPerimetro(Resource):
+    @calculate_namespace.doc(response={200, "success"}, model=response_model)
     @calculate_namespace.expect(calculate_model)
     def post(self):
         data = request.json
-        parameters = VivianiParameters(
-            parameter1=float(data.get("radio", 0)),
-            parameter2=float(data.get("subintervalos", 0)),
-        )
+        radio = float(data.get("radio", 0))
+        subintervalos = int(data.get("subintervalos", 0))
+        parameters = VivianiParameters(radio, subintervalos)
         result = calcular_perimetro(parameters)
         return jsonify(result=result)
