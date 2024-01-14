@@ -1,0 +1,13 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend of the Application",
+  "main": "app/app.py",
+  "scripts": {
+    "start": "python -m app.app"
+  },
+  "keywords": [],
+
+  "author": "",
+  "license": "ISC"
+}
