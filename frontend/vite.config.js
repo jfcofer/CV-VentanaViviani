@@ -1,6 +1,7 @@
-export default{
-    build: {
-        outDir: '../backend/app/static',
-        assetsDir: '',
-    },
-}
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+})
