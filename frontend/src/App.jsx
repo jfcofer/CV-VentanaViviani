@@ -7,6 +7,7 @@ const App = () => {
     <div className="row align-items-start">
       <div className="col-4 text-center ">
         <div className="container ">
+          <br />
           <h1 className="h1">Ventana de Viviani</h1>
           <p>Aproximar el perimetro de una Ventana de Viviani</p>
           <br />
