@@ -34,7 +34,7 @@ const NumberCalculator = ({ apiUrl }: CalculatorProps) => {
           type="number"
           value={radio || ""}
           className="form-control"
-          onChange={(e) => setRadio(parseInt(e.target.value))}
+          onChange={(e) => setRadio(parseFloat(e.target.value))}
           placeholder="0"
         />
         <label>Radio:</label>
@@ -49,7 +49,7 @@ const NumberCalculator = ({ apiUrl }: CalculatorProps) => {
           type="number"
           className="form-control"
           value={subintervalos || ""}
-          onChange={(e) => setSubintervalos(parseFloat(e.target.value))}
+          onChange={(e) => setSubintervalos(parseInt(e.target.value))}
           placeholder="0"
         />
         <label>Sub-Intervalos:</label>
@@ -70,7 +70,7 @@ const NumberCalculator = ({ apiUrl }: CalculatorProps) => {
         <div className="col align-self-end">
           <br />
           <h4>Aproximado del Perímetro</h4>
-          <p>{result}</p>
+          <p>{result.toFixed(3)}</p>
         </div>
       )}
     </div>
