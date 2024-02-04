@@ -28,41 +28,48 @@ const NumberCalculator = ({ apiUrl }: CalculatorProps) => {
   };
 
   return (
-    <div className="col-5">
-      <div className="form-floating mb-5 row">
+    <div>
+      <div className="form-floating mb-5">
         <input
           type="number"
           value={radio || ""}
           className="form-control"
-          onChange={(e) => setRadio(parseFloat(e.target.value))}
+          onChange={(e) => setRadio(parseInt(e.target.value))}
+          placeholder="0"
         />
+        <label>Radio:</label>
         <div className="col-auto">
           <span id="passwordHelpInline" className="form-text">
             Radio de la Esfera
           </span>
         </div>
-
-        <label>Radio de la Esfera:</label>
       </div>
-      <div className="form-floating mb-5 row">
+      <div className="form-floating mb-5">
         <input
           type="number"
           className="form-control"
           value={subintervalos || ""}
           onChange={(e) => setSubintervalos(parseFloat(e.target.value))}
+          placeholder="0"
         />
-        <label>SubIntervalos</label>
+        <label>Sub-Intervalos:</label>
         <div className="col-auto">
           <span id="passwordHelpInline" className="form-text">
-            SubIntervalos de la Suma de Riemmann
+            Sub-Intervalos de la Suma de Riemann
           </span>
         </div>
       </div>
-      <button onClick={handleCalculate}>Calculate</button>
+      <button
+        onClick={handleCalculate}
+        className="btn btn-success form-control text-center"
+      >
+        Calcular
+      </button>
 
       {result !== undefined && (
-        <div>
-          <h3>Result:</h3>
+        <div className="col align-self-end">
+          <br />
+          <h4>Aproximado del Perímetro</h4>
           <p>{result}</p>
         </div>
       )}
