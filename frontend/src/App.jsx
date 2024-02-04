@@ -14,11 +14,19 @@ const App = () => {
           <NumberCalculator apiUrl={apiUrl} />
         </div>
       </div>
-      <div className="col align-items-center">
+      <div
+        className="col align-items-center"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <iframe
           title="Curva de Viviani"
           width="700em"
           height="700em"
+          style={{ display: "block" }}
           src="https://www.geogebra.org/material/iframe/id/gCscxkzY/width/793/height/582/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false"
         />
       </div>
